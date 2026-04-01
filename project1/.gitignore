@@ -1,0 +1,23 @@
+# 가상환경
+.venv/
+
+# 데이터 (용량 크고 자동 다운로드 되므로 제외)
+data/
+
+# Python 캐시
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter 체크포인트
+.ipynb_checkpoints/
+
+# 결과물
+results/
+
+# VS Code
+.vscode/
+
+# 시스템 파일
+.DS_Store
+Thumbs.db
