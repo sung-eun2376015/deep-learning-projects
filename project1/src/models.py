@@ -1,14 +1,15 @@
-import torch.nn as nn
-#nn=neural network
+import torch.nn as nn #nn=neural network
 
-class LogisticRegression(nn.Model):
+#로지스틱 모델
+class LogisticRegression(nn.Module):
     def __init__(self):
         super().__init__()
         self.fc=nn.Linear(28*28,10) #fc=fully connected
     def forward(self,x):
         x=x.view(-1,28*28) #1개의 이미지는 (28,28)으로 2차원인데 이걸 하나로 만들기
         return self.fc(x)
-    
+
+#MLP(Multi-Layer Perceptron)모델=Deep Feedforward Network=Fully Connected Network=Dense Network
 class MLP(nn.Module):
     def __init__(self):
         super().__init__()
