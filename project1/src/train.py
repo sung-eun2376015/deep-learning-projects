@@ -7,6 +7,11 @@ import matplotlib
 matplotlib.rcParams['font.family'] = 'DejaVu Sans'
 import matplotlib.pyplot as plt
 
+#만들어둔 함수 불러오기
+from dataset import get_dataset,CLASS_NAMES
+#만들어둔 모델 클래스 불러오기
+from models import LogisticRegression,MLP
+
 # ─────────────────────────────────────────
 # 경로 설정 (src/ 한 단계 위가 프로젝트 루트)
 # ─────────────────────────────────────────
@@ -22,11 +27,6 @@ os.makedirs(LOGS_DIR,    exist_ok=True)
 # ─────────────────────────────────────────
 # 학습 함수
 # ─────────────────────────────────────────
-
-#만들어둔 함수 불러오기
-from dataset import get_dataset
-#만들어둔 모델 클래스 불러오기
-from models import LogisticRegression,MLP
 
 def train(model, train_loader, criterion, optimizer, epoch):
     model.train()
@@ -206,7 +206,7 @@ def plot_error_analysis(model, test_loader, model_name, n=12):
 
 
 # ─────────────────────────────────────────
-# 메인 실행
+# 메인 함수
 # ─────────────────────────────────────────
 def main(model_name='MLP', epochs=10, batch_size=32):
     train_dataset, test_dataset = get_dataset()
@@ -244,6 +244,8 @@ def main(model_name='MLP', epochs=10, batch_size=32):
     return model, history, test_loader
 
 
+# ─────────────────────────────────────────
+# 메인 실행
 # ─────────────────────────────────────────
 if __name__ == '__main__':
     EPOCHS = 10
